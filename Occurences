@@ -1,0 +1,31 @@
+#include <stdio.h>
+#define range 10
+
+int occurence(int num)
+{
+  int lastnum,i,occur[range],n;
+  for(i=0; i<range; i++)
+    {
+        occur[i] = 0;
+    }  
+    n = num; 
+    while(n != 0)
+    {
+        lastnum = n % 10;
+        n /= 10;
+        occur[lastnum]++;
+    }
+    for(i=0; i<range; i++)
+    {
+        printf("Occurence of %d = %d\n", i, occur[i]);
+    }
+}
+int main()
+{
+    int num;
+    int lastnum,i,occur[range];
+
+    printf("Enter number to check the occurences: ");
+    scanf("%d", &num);
+  	occurence(num);
+}
