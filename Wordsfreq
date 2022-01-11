@@ -1,0 +1,8 @@
+#Python
+
+string =input("Enter the string");
+print("The string is : " )
+print(string)
+final_String = {key: string.count(key) for key in string.split()}
+print("The word frequency-- ")
+print(final_String)
