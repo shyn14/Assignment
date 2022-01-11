@@ -1,0 +1,67 @@
+#include<stdlib.h>
+#include<math.h>
+#include<stdio.h>
+
+int matrix1[10][10],matrix2[10][10],finalmat[10][10],r1,c1,r2,c2;
+
+void multiply()
+{
+	int i,j,k;
+	for(i=0;i<r1;i++)
+	{
+		for(j=0;j<c2;j++)
+		{
+			for(k=0;k<c1;k++)
+			{
+				finalmat[i][j]+=(matrix1[i][k]*matrix2[k][j]);
+			}
+	    }
+	}
+	printf("\nFinal Matrix:\n\n");
+	
+}
+void accept(int matrix1[10][10],int n1,int n2)
+{
+	int i,j;
+	for(i=0;i<n1;i++)
+	{
+		for(j=0;j<n2;j++)
+		{
+			printf("Enter Element %d of Row %d: ",j+1,i+1);
+			scanf("%d",&matrix1[i][j]);
+		}
+	}
+}
+void display(int matrix1[10][10],int n1,int n2)
+{
+	int i,j;
+	for(i=0;i<n1;i++)
+	{
+		for(j=0;j<n2;j++)
+		{
+			printf("%d\t",matrix1[i][j]);
+		}
+		printf("\n");
+	}
+}
+
+void main()
+{
+	printf("\nEnter the Rows and Columns of First Matrix--");
+	scanf("%d%d",&r1,&c1);
+	accept(matrix1,r1,c1);
+	printf("\nFirst Matrix:\n");
+	display(matrix1,r1,c1);
+	printf("\nEnter the Rows and Columns of Second Matrix-- ");
+	scanf("%d%d",&r2,&c2);
+	while(c1!=r2)
+	{
+		printf("\nNumber of rows of second Matrix and Number of Columns of first Matrix cannot be different\n");
+		scanf("%d",&r2);
+	}
+	accept(matrix2,r2,c2);
+	printf("\nSecond Matrix:\n");
+	display(matrix2,r2,c2);
+	multiply();
+  display(finalmat,r1,c2);
+}
