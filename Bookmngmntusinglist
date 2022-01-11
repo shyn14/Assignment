@@ -1,0 +1,146 @@
+#include<stdlib.h>
+#include<stdio.h>
+#include<string.h>
+
+int counter=1;
+
+struct Book
+{
+	int id;
+	char name[100];
+	struct Book* next;
+}*head=NULL;
+
+void insert(char bname[15])
+{
+	struct Book* newnode=(struct Book*)malloc(sizeof(struct Book));
+	struct Book* temp=head;
+	
+	newnode->id=counter++;
+	strcpy(newnode->name,bname);
+	newnode->next=NULL;
+	
+	if(temp==NULL)
+	{
+		head=newnode;
+		printf("\nBook Entered Succesfully");
+	}
+	else
+	{
+		while(temp->next!=NULL)
+			temp=temp->next;
+				
+		temp->next=newnode;
+		printf("\nBook Entered at the last successfully");
+	}
+}
+
+void search()
+{
+	int count=0;
+	char bname[20];
+	struct Book* current=head;
+	
+	printf("\nEnter the Name of the Book: ");
+	scanf("%s",&bname);
+		
+	if(current==NULL)
+		printf("\nThere are no Books to Search!!!");
+		return;
+	while(current->next!=NULL)
+	{
+		count++;
+		if(strcmp(current->name,bname)==0)
+		{
+			printf("\nBook Found at %d Position",count);
+			return;
+		}
+		current=current->next;
+	}
+	printf("\nBook Does not Exist");
+}
+
+void removeb()
+{
+	struct Book* prev;
+	struct Book* temp=head;
+	
+	if(temp==NULL)
+	{
+		printf("\nBooks doesn't exist");
+	}
+	else
+	{
+		if(temp->next==NULL)
+		{
+			head=temp->next;    
+			printf("\nBooks have been all Removed");
+			counter--;
+			free(temp);
+		}
+		else
+		{
+			while(temp->next!=NULL)
+			{
+				prev=temp;
+				temp=temp->next;
+			}
+			prev->next=temp->next;
+			printf("\nLast Book Removed Succesfully!!");
+			counter--;
+			free(temp);
+		}
+	}
+}
+
+void display()
+{
+	struct Book* temp;
+	if(head==NULL)
+		printf("\nNo Books to Display!");
+	else
+	{
+		for(temp=head;temp!=NULL;temp=temp->next)
+		{
+		
+			printf("\n\nBook ID: %d\nBook Name: %s\n",temp->id,temp->name);
+	    }
+	}
+}
+
+int main()
+{
+	head=NULL;
+	int choice;
+	char bname[15];
+		
+	while(1)
+	{
+		printf("\n\n1.Insert Book\n2.Remove Book\n3.Display Books\n4.Search\n5.Exit\n\n");
+		scanf("%d",&choice);
+			
+		switch(choice)
+		{
+			
+				
+			case 1: printf("\nEnter the name of the Book: ");
+				    scanf("%s",bname);
+					insert(bname);
+					break;
+					
+			case 2: removeb();
+					break;
+			
+			case 3: display();
+					break;
+					
+			case 4: search();
+					break;
+			
+			case 5:exit(0);
+      
+			default:printf("\nPlease Enter valid choice");
+					break;
+		}
+    } 
+}
