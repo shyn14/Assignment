@@ -47,6 +47,7 @@ string convertamerican(unsigned long long int n)
     sq = words(((n / 1000000000000) % 1000), "Trillion, ") + sq;
     sq = words(((n / 1000000000000000) % 1000), "Quadrillion, ") + sq;
     sq = words(((n / 1000000000000000000) % 1000), "Quintillion, ") + sq;
+    sq = words(((n / 10000000000000000000) % 1000),  "Sextillion, ") +  sq;
    
    
     return sq;
@@ -62,14 +63,14 @@ int main()
 
         if(num1==0)
         {
-            cout<<"WORDS:===== Zero";
+            cout<<"Words----- Zero";
             continue;
         }
         if(num1==-1)
             break;
         
         if(num1>pow(10,19))
-            cout<<"Entered Number is Out of Range!!!!";
+            cout<<"Entered Number is Out of Range";
         else
         {
            
