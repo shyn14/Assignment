@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<string.h>
+int palindrome(char str[])
+{
+  int i,j,n;
+  j=strlen(str)-1;
+  for(i=0;i<=(j/2)-1;i++)
+  {
+    if(str[i]!=str[j])
+      return 0;
+    j--;
+  }
+  return 1;
+}
+
+main()
+{
+  char str[100];
+  printf("Enter the string");
+  scanf("%s",str);
+  if(palindrome(str)==1)
+    printf("String is palindrome");
+  else if(palindrome(str)==0) 
+    printf("String is not palindrome");
+  else  
+    printf("Invalid String");
+}
