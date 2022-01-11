@@ -2,27 +2,24 @@
 #include<stdlib.h>
 
 int function(int num)
-{ int rem,sum=0;
-  for(int i=1;i<num;i++)
-  {
-      rem=num%i;
-      if(rem==0)
-      {
-        sum=sum+i;
-      }
+{int i;
+  for( i=2;i<=num;i++)
+  {   
+    int  sum=1;
+     for(int j=2;j<=i/2;j++)
+     {
+       if(i%j==0)
+        sum+=j;
+     }
+  
+  if(sum==i)
+    printf("\n%d",i);
   }
-  if(sum==num)
-    return 1;
-  else
-    return 0;
 }
 int main()
 {
   int num;
   printf("Enter the number to check");
   scanf("%d",&num);
-  if(function(num)==1)
-    printf("This is a perfect number");
-  else
-    printf("This is not a perfect number");
+  function(num);
 }
