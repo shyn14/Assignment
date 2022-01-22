@@ -43,7 +43,7 @@ void predict(Cross *root, char *word)
 	int i,misMatch=0;
 	
 	//To reach to node with the matching intial character
-	while(root != NULL)
+	while(root != NULL && word[0]!='_')
   {
     	if (root->word[0] == word[0])
             break;
@@ -55,7 +55,7 @@ void predict(Cross *root, char *word)
 		 
   if(root != NULL)
   {
-    if (strlen(root->word) == strlen(word) && root->word[0]==word[0])
+    if (strlen(root->word) == strlen(word))
     {
         for(i=0;word[i]!='\0';i++)
         {
@@ -107,17 +107,11 @@ int main()
     	printf("\n\nEnter the Crossword: ");
       scanf("%s",crws);
         
-      if(crws[0]=='_')
-      {
-        printf("\nEnter the initial character\n");
-        continue;
-		  }
-        
-		  else if((strcmp(crws,"exit") == 0)||(strcmp(crws,"Exit") == 0)||(strcmp(crws,"EXIT") == 0))
+      
+		  if((strcmp(crws,"exit") == 0)||(strcmp(crws,"Exit") == 0)||(strcmp(crws,"EXIT") == 0))
         	break;
 
-      else
-        printf("--Invalid Input--");
+     
         
 		  count=0;
       predict(root,crws);
