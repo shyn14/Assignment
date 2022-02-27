@@ -1,3 +1,5 @@
+/*Calculate loneOnes*/
+
 function loneOnes(str){
 let c=0;
 for(let i=0;i<str.length;i++){
