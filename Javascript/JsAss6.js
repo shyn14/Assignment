@@ -1,3 +1,5 @@
+/* JavaScript ES6 an arrow function expression is a syntactically compact alternative to a regular function expression. Create a function that takes a string representing a function and converts between an arrow function and a regular function*/
+
 function arrow(str) {
    
     console.log("Given--"+str);
