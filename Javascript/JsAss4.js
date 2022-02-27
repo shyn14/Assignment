@@ -1,4 +1,4 @@
-
+/*Create a function that takes one, two or more numbers as arguments and adds them together to get a new number. The function then repeatedly multiplies the digits of the new number by each other, yielding a new number, until the product is only 1 digit long. Return the final product.*/
 let number=0;
 
 function yeild(...n) {
@@ -43,21 +43,4 @@ yeild(997,2);
 
 
 
-// function persistence(num) {
-//   if (num.toString().length === 1) {
-//     return 0;
-//   }
-//   var mult = 1;
-//   var splitStr = num.toString().split("");
-//   for (var i = 0; i < splitStr.length; i++) {
-//     mult *= parseFloat(splitStr[i])
-//   }
-//   return 1 + persistence(parseFloat(mult));
-// }
-
-// console.log(
-//   persistence(999),
-//   persistence(39),
-//   persistence(4)
-// );
 
